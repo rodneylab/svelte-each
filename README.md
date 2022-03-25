@@ -6,7 +6,7 @@
   </a>
 </p>
 <h1 align="center">
-  Svelte Iconify
+  Svelte #each
 </h1>
 
 # svelte-each
