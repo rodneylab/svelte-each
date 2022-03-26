@@ -3,7 +3,7 @@
   import '@fontsource/open-sans';
 
   /**
-   * Returns a the number as a padded hex string
+   * Returns the number as a padded hex string
    * @param {number} number - decimal number to convert to hex (should be 0 to 255)
    * @returns {string} - zero padded string
    */
@@ -27,7 +27,7 @@
    * @returns number - modulus of input number
    */
   function modulus(number, divisor) {
-    return ((number % divisor) + divisor) % divisor;
+    return number < 0 ? ((number % divisor) + divisor) % divisor : number % divisor;
   }
 
   /**
@@ -42,7 +42,7 @@
 
     const cMax = Math.max(r, g, b);
     const cMin = Math.min(r, g, b);
-    const chroma = Math.max(cMax - cMin);
+    const chroma = cMax - cMin;
 
     let hue = 0;
     if (chroma > 1e-6) {
@@ -75,18 +75,23 @@
   }
 
   /**
+   * Return linear-light or gamma expanded equivalent of 8-bit sinlge R, G or B input
+   * @param {number} rgb8Bit - r, g or b 8-bit value (e.g. 225)
+   * @returns {number} - the calculated linear-light value
+   */
+  function linearLight(rgb8Bit) {
+    const sRgb = rgb8Bit / 255;
+    return sRgb <= 0.03928 ? sRgb / 12.92 : Math.pow(sRgb + 0.055 / 1.055, 2.4);
+  }
+
+  /**
    * Returns a light or dark text class used to increase contrast between background and text
    * @param {{red: number, green: number; blue: number}} inputColour - rgb values 0 to 255
    * @returns{'text-light'|'text-dark'} - returns a class
    */
   function textColourClass({ red, green, blue }) {
-    const r = red / 255;
-    const g = green / 255;
-    const b = blue / 255;
-    const r1 = r <= 0.03928 ? r / 12.92 : Math.pow(r + 0.055 / 1.055, 2.4);
-    const g1 = g <= 0.03928 ? g / 12.92 : Math.pow(g + 0.055 / 1.055, 2.4);
-    const b1 = b <= 0.03928 ? b / 12.92 : Math.pow(b + 0.055 / 1.055, 2.4);
-    const colourRelativeLuminance = 0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1;
+    const colourRelativeLuminance =
+      0.2126 * linearLight(red) + 0.7152 * linearLight(green) + 0.0722 * linearLight(blue);
     const whiteContrastRatio = 1.05 / (colourRelativeLuminance + 0.05);
     const blackContrastRatio = (colourRelativeLuminance + 0.05) / 0.05;
     return blackContrastRatio > whiteContrastRatio ? 'text-dark' : 'text-light';
@@ -145,13 +150,15 @@
           {:then name}
             {`${name}: `}
           {/await}
-          {#if colourSystem === 'hex'}
-            <span class="colour-code">{hex}</span>
-          {:else if colourSystem === 'rgb'}
-            <span class="colour-code">rgb({red} {green} {blue})</span>
-          {:else}
-            <span class="colour-code">{hsl}</span>
-          {/if}
+          <span class="colour-code">
+            {#if colourSystem === 'hex'}
+              {hex}
+            {:else if colourSystem === 'rgb'}
+              rgb({red} {green} {blue})
+            {:else}
+              {hsl}
+            {/if}</span
+          >
         </article>
       {/each}
     </div>
@@ -204,8 +211,6 @@
     --max-width-wrapper: 48rem;
 
     --font-size-root: 16px;
-    --font-size-1: 1rem;
-    --font-size-2: 1.25rem;
     --font-size-3: 1.563rem;
     --font-size-5: 2.441rem;
     --font-size-6: 3.052rem;
@@ -269,7 +274,6 @@
   .colour {
     text-align: center;
     padding: var(--spacing-6);
-    place-content: center;
     border-radius: var(--spacing-1);
   }
   .colour-code {
