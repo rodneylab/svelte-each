@@ -1,6 +1,8 @@
 {
   "name": "svelte-each",
   "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "description": "Using Svelte each blocks: how to loop on array-like objects in Svelte + simplify your code using const & style directives and destructuring.",
   "scripts": {
     "dev": "svelte-kit dev --port 3000",
     "build": "svelte-kit build",
@@ -40,6 +42,13 @@
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
     "typescript": "~4.7.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodneylab/svelte-each"
+  },
+  "bugs": {
+    "url": "https://github.com/rodneylab/svelte-each/issues"
   },
   "type": "module"
 }
