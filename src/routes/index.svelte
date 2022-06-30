@@ -177,10 +177,6 @@
     font-weight: var(--font-weight-normal);
   }
 
-  :global(h1, h2) {
-    font-family: var(--font-heading);
-  }
-
   :global(h1) {
     font-size: var(--font-size-6);
     font-weight: var(--font-weight-extrabold);
@@ -193,6 +189,10 @@
 
   :global(code) {
     font-family: Fira Code;
+  }
+
+  :global(h1, h2) {
+    font-family: var(--font-heading);
   }
 
   :global(:root) {
