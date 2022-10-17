@@ -1,4 +1,5 @@
 <script>
+  import '$lib/styles/global.css';
   import '@fontsource/fira-code';
   import '@fontsource/open-sans';
 
@@ -166,70 +167,6 @@
 </main>
 
 <style>
-  :global(html) {
-    background-color: var(--colour-alt);
-    font-family: var(--font-body);
-    accent-color: var(--colour-theme);
-  }
-
-  :global(body) {
-    margin: 0;
-    font-weight: var(--font-weight-normal);
-  }
-
-  :global(h1) {
-    font-size: var(--font-size-6);
-    font-weight: var(--font-weight-extrabold);
-  }
-
-  :global(h2) {
-    font-size: var(--font-size-5);
-    font-weight: var(--font-weight-bold);
-  }
-
-  :global(code) {
-    font-family: Fira Code;
-  }
-
-  :global(h1, h2) {
-    font-family: var(--font-heading);
-  }
-
-  :global(:root) {
-    --colour-theme: hsl(35 100% 55%); /* orange peel */
-    --colour-brand: hsl(211 71% 53%); /* french blue */
-    --colour-alt: hsl(0 0% 87%); /* gainsboro */
-    --colour-light: hsl(77 100% 97%); /* ivory */
-    --colour-dark: hsl(0 0% 20%); /* jet */
-
-    --spacing-1: 0.25rem;
-    --spacing-2: 0.5rem;
-    --spacing-4: 1rem;
-    --spacing-6: 1.5rem;
-    --spacing-12: 3rem;
-    --spacing-18: 4.5rem;
-    --max-width-wrapper: 48rem;
-
-    --font-size-root: 16px;
-    --font-size-3: 1.563rem;
-    --font-size-5: 2.441rem;
-    --font-size-6: 3.052rem;
-
-    --font-weight-normal: 400;
-    --font-weight-bold: 700;
-    --font-weight-extrabold: 800;
-
-    --font-heading: 'Open Sans';
-    --font-body: 'Open Sans';
-
-    /* CREDIT: https://www.joshwcomeau.com/shadow-palette/ */
-    --shadow-color: 0deg 6% 60%;
-    --shadow-elevation-medium: -1px 1px 1.4px hsl(var(--shadow-color) / 0.51),
-      -2.7px 2.7px 3.7px -1.2px hsl(var(--shadow-color) / 0.43),
-      -7.6px 7.6px 10.5px -2.3px hsl(var(--shadow-color) / 0.36),
-      -20px 20px 27.6px -3.5px hsl(var(--shadow-color) / 0.29);
-  }
-
   .header-container {
     display: grid;
     background-color: var(--colour-theme);
