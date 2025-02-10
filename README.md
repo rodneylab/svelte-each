@@ -11,7 +11,19 @@
 
 # svelte-each
 
+## 🌏  Open in the Cloud 
+
+Click any of the buttons below to start a new development environment to demo or contribute to the codebase without having to install anything on your machine:
+
+[![Open in VS Code](https://img.shields.io/badge/Open%20in-VS%20Code-blue?logo=visualstudiocode)](https://vscode.dev/github/rodneylab/svelte-each)
+[![Open in Glitch](https://img.shields.io/badge/Open%20in-Glitch-blue?logo=glitch)](https://glitch.com/edit/#!/import/github/rodneylab/svelte-each)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/rodneylab/svelte-each)
+[![Edit in Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/rodneylab/svelte-each)
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/rodneylab/svelte-each)
+[![Open in Repl.it](https://replit.com/badge/github/withastro/astro)](https://replit.com/github/rodneylab/svelte-each)
+[![Open in Codeanywhere](https://codeanywhere.com/img/open-in-codeanywhere-btn.svg)](https://app.codeanywhere.com/#https://github.com/rodneylab/svelte-each)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rodneylab/svelte-each)
+
 
 Demo code: colour palette app which helps explain Svelte each blocks as well as const directives, destructuring within each blocks and style directives. The code accompanies the <a aria-label="Open Rodney Lab video post on Svelte Each blocks" href="https://rodneylab.com/using-svelte-each-blocks/">video post on using each blocks in Svelte</a>. If you have any questions, please drop a comment at the bottom of that page.
 
